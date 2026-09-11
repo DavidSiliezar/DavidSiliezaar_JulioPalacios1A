@@ -30,7 +30,6 @@ public class AuthService {
     }
 
     public void eliminarCuenta (String username  ){
-        new Usuario(username);
         if (auth.containsKey(username)){
             auth.remove(username);
 
@@ -42,18 +41,10 @@ public class AuthService {
         }
     }
 
-    public void disponibilidadUsername(String username){
-        new Usuario(username);
-
-        if (auth.equals(username)){
-            System.out.println("Este nombre no esta disponible");
-        }
-        else {
+    public boolean disponibilidadUsername(String username){
+        return !auth.containsKey(username);
 
 
-            System.out.println("El nombre: "+username+" Esta disponible");
-
-        }
 
     }
 }

@@ -7,7 +7,6 @@ import java.util.StringTokenizer;
 public class Main {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-
         AuthService auth = new AuthService();
 
         int opcion;
@@ -33,10 +32,14 @@ public class Main {
             switch (opcion){
                 case 1:
                     System.out.println("Ingresa tu nombre de usuario y contraseña");
+                    System.out.println("Ingresa usuario");
                     usuario = sc.nextLine();
+                    System.out.println("Ingresa contraseña");
                      clave = sc.nextLine();
                     System.out.println("Ingresa tu nombre completo y email");
+                    System.out.println("Ingresa tu nombre completo");
                      nombreCompleto = sc.nextLine();
+                    System.out.println("Ingresa tu email");
                      email = sc.nextLine();
                     auth.registroUsuarios(usuario,clave, nombreCompleto, email);
                     break;
@@ -61,8 +64,13 @@ public class Main {
                 case 4 :
                     System.out.println("Ingresa usuario para verificar su disponibilidad");
                     usuario = sc.nextLine();
-                    auth.disponibilidadUsername(usuario);
-                    break;
+                   if(auth.disponibilidadUsername(usuario)){
+                       System.out.println("esta disponible");
+                   }
+                   else {
+                       System.out.println("No esta disponible");
+                   }
+                   break;
 
                 case 5 :
                     System.out.println("Saliendo del sistema");
